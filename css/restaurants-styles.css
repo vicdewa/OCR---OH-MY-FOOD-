@@ -1,0 +1,210 @@
+:root {
+  --btn-gradient: linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%) ;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+body a {
+  text-decoration: none;
+}
+body header {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+body header .fa-arrow-left {
+  display: flex;
+  position: absolute;
+  left: 30px;
+  top: 22px;
+}
+body header .header-logo {
+  width: 13.125em;
+  height: 2.75em;
+  padding-top: 15px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+body main .header-img-restaurant {
+  width: 100%;
+  height: 275px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+body main h1 {
+  color: var(--Black, #101010);
+  font-family: Shrikhand;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  text-align: center;
+}
+body main h2 {
+  display: flex;
+  width: 275px;
+  height: 27px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 15px;
+  text-align: left;
+  padding-top: 20px;
+}
+body main hr {
+  border: 2px #99E2D0 solid;
+  width: 40px;
+  margin-left: 15px;
+  margin-top: 0px;
+}
+body main h3 {
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: left;
+}
+body main p {
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Roboto", sans-serif;
+  font-size: 15.043px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-align: left;
+}
+body main .card-restaurant {
+  background-color: #F3F3F3;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  border-radius: 30px 30px 0px 0px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  body main .card-restaurant {
+    max-width: 1440px;
+  }
+}
+body main .card-restaurant .card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  body main .card-restaurant .card-title {
+    justify-content: center;
+    gap: 25px;
+  }
+}
+body main .card-restaurant .btn-menu {
+  padding: 15px;
+  width: 85%;
+  margin-top: 20px;
+  background-color: white;
+  border: 0px solid transparent;
+  border-radius: 15.043px;
+  background: var(--White, #FFF);
+  box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.1);
+}
+body main .card-restaurant .btn-menu-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body main .menu-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body main .btn-cta {
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 15px 20px 15px 20px;
+  margin-top: 30px;
+  border: transparent;
+  border-radius: 25px;
+  background: var(--btn-gradient);
+}
+body main .btn-cta:hover {
+  opacity: 75%;
+}
+@media (min-width: 768px) {
+  body main .btn-cta {
+    width: 15%;
+  }
+}
+body footer {
+  color: white;
+  background-color: var(--Grey, #353535);
+}
+@media (min-width: 768px) {
+  body footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 25px;
+  }
+}
+body footer .footer__logo {
+  color: var(--White, #FFF);
+  font-family: Shrikhand;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 25px;
+  padding-top: 25px;
+}
+@media (min-width: 768px) {
+  body footer .footer__content {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+body footer ul {
+  list-style: none;
+  padding-top: 15px;
+  padding-bottom: 35px;
+  padding-left: 25px;
+}
+body footer ul li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+body footer ul li .fa-solid {
+  padding-right: 10px;
+}/*# sourceMappingURL=restaurants-styles.css.map */

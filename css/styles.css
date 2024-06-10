@@ -1,3 +1,384 @@
+:root {
+  --btn-gradient: linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%) ;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-appear {
+  50% {
+    opacity: 0.95;
+  }
+  99% {
+    z-index: 21;
+  }
+  100% {
+    opacity: 0;
+    z-index: -20;
+  }
+}
 body {
-  width: 767px;
+  font-family: "Roboto", sans-serif;
+  background-color: #F3F3F3;
+}
+body .loader__container {
+  /*border-radius: 5px;
+  background: transparent;
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;*/
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #ffffff;
+  opacity: 0.95;
+  animation: loading-appear 2s both ease-in-out;
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .loader {
+  display: block;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  border-top-color: #9356DC;
+  animation: spin 2s linear infinite;
+}
+body .loader::before, body .loader::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 7px solid transparent;
+}
+body .loader::before {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-top-color: #FF79DA;
+  animation: spin 3s linear infinite;
+}
+body .loader::after {
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+  border-top-color: #99E2D0;
+  animation: spin 1.5s linear infinite;
+}
+body header {
+  background-color: white;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  body header {
+    box-shadow: none;
+  }
+}
+body header .header__logo {
+  display: block;
+  width: 13.125em;
+  height: 2.75em;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+body header .header__logo img {
+  display: block;
+  width: 13.125em;
+  height: 2.75em;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+body main h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 25px;
+}
+body main a {
+  text-decoration: none;
+}
+body main .location {
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+body main .location i {
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  body main .location {
+    box-shadow: none;
+  }
+}
+body main .search p {
+  text-align: center;
+  padding-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+body main .search h1 {
+  text-align: center;
+  padding-bottom: 15px;
+}
+@media (min-width: 768px) {
+  body main .search h1 {
+    font-size: 40px;
+  }
+}
+body main .search .btn-search {
+  width: 15em;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 15px 20px 15px 20px;
+  margin-top: 30px;
+  border: transparent;
+  border-radius: 25px;
+  background: var(--btn-gradient);
+  opacity: 1;
+  position: relative;
+  transition: all 1s ease-out;
+}
+body main .search .btn-search:hover {
+  opacity: 75%;
+}
+body main .how-it-works {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  body main .how-it-works__steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+body main .how-it-works .number {
+  color: white;
+  background-color: #9356DC;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 10px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  left: -5px;
+  top: 8px;
+}
+body main .how-it-works button {
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  width: 80%;
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  position: relative;
+}
+body main .how-it-works button:hover {
+  color: #9356DC;
+}
+@media (min-width: 768px) {
+  body main .how-it-works button {
+    width: 20.125em;
+    margin: 20px;
+  }
+}
+body main .how-it-works__last-button {
+  margin-bottom: 60px;
+}
+body main .how-it-works i {
+  padding-right: 15px;
+}
+body main .list-restaurants {
+  margin-bottom: 60px;
+}
+@media (min-width: 768px) {
+  body main .list-restaurants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+}
+body main .list-restaurants .card {
+  margin: auto;
+  height: 251px;
+  width: 90%;
+  align-self: stretch;
+  border-radius: 15px;
+  background-color: white;
+  margin-bottom: 15px;
+  position: relative;
+}
+body main .list-restaurants .card .card__title {
+  padding-top: 10px;
+  padding-left: 10px;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+body main .list-restaurants .card .card__subtitle {
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+body main .list-restaurants .card .card__favorite .fa-heart {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  color: black;
+}
+body main .list-restaurants .card .card__new {
+  color: #008766;
+  background-color: #99E2D0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 80px;
+  height: 29px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+body main .list-restaurants .card img {
+  height: 183px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px 15px 0px 0px;
+}
+body footer {
+  color: white;
+  background-color: var(--Grey, #353535);
+}
+@media (min-width: 768px) {
+  body footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 25px;
+    padding-bottom: 30px;
+  }
+}
+body footer .footer__logo {
+  color: var(--White, #FFF);
+  font-family: Shrikhand;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 25px;
+  padding-top: 30px;
+}
+@media (min-width: 768px) {
+  body footer .footer__content {
+    display: flex;
+    flex-direction: row;
+  }
+}
+body footer .footer__bold {
+  font-weight: bold;
+}
+body footer ul {
+  list-style: none;
+  padding-top: 25px;
+  padding-bottom: 35px;
+  padding-left: 25px;
+}
+@media (min-width: 768px) {
+  body footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: baseline;
+  }
+}
+body footer ul li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+body footer ul li .fa-solid {
+  padding-right: 10px;
+}
+@media (min-width: 768px) {
+  body footer ul li {
+    padding-right: 25px;
+  }
 }/*# sourceMappingURL=styles.css.map */
