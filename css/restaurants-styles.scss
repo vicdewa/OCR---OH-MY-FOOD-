@@ -12,23 +12,21 @@ $background-color--grey: #F3F3F3;
 
 // Mixins
 
-@mixin for-phone-only {
-    @media (max-width: 767px) { @content; }
-  }
 @mixin for-tablet {
-    @media (min-width: 768px) { @content; }
+    @media only screen and (min-width: 769px) { @content; }
   }
 @mixin for-desktop {
-    @media (min-width: 1024px) { @content; }
-  }
-@mixin for-big-desktop-up {
-    @media (min-width: 1440px) { @content; }
+    @media only screen and (min-width: 1025px) { @content; }
   }
 
 body{
     font-family: $text-font;
+    background: $background-color--grey;
     a{
         text-decoration: none;
+        &:visited{
+            text-decoration: none;
+        }
     }
     header{
         background-color: white;
@@ -40,6 +38,7 @@ body{
             position: absolute;
             left: 30px;
             top: 22px;
+            color: black;
         }
         .header-logo{
             width: 13.125em;
@@ -50,6 +49,9 @@ body{
         }
     }
     main{
+        @include for-desktop{
+            background: white;
+        }
         .header-img-restaurant{
             width: 100%;
             height: 275px;
@@ -66,7 +68,6 @@ body{
             line-height: normal;
             margin-top: 30px;
             margin-bottom: 20px;
-            padding-left: 15px;
             text-align: center;
         }
         h2{
@@ -79,18 +80,24 @@ body{
             padding-left: 15px;
             text-align: left;
             padding-top: 20px;
+            @include for-tablet{
+                padding-left: 55px;
+            }
         }
         hr{
             border: 2px $third-color solid;
             width: 40px;
             margin-left: 15px;
             margin-top: 0px;
+            @include for-tablet{
+                margin-left: 55px;
+            }
         }
         h3{
-            overflow: hidden;
             color: #000;
-            text-overflow: ellipsis;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             font-family: $text-font;
             font-size: 18px;
             font-style: normal;
@@ -99,10 +106,10 @@ body{
             text-align: left;
         }
         p{
-            overflow: hidden;
             color: #000;
-            text-overflow: ellipsis;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             font-family: $text-font;
             font-size: 15.043px;
             font-style: normal;
@@ -113,25 +120,65 @@ body{
         .card-restaurant{
             background-color: $background-color--grey;
             margin-top: -30px;
-            margin-bottom: 40px;
+            padding-bottom: 50px;
             border-radius: 30px 30px 0px 0px;
             position: relative;
             z-index: 2;
             @include for-tablet{
-                max-width: 1440px;
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+            @include for-desktop{
+                max-width: 1025px;
+                margin-right: 6.25em;
+                margin-left: 6.25em;
             }
             .card-title{
+                width: 100%;
+                position: relative;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 align-content: center;
                 justify-content: space-around;
+                margin: auto;
                 @include for-tablet{
-                    justify-content: center;
+                    width: 19em;
+                    justify-content: space-between;
+                }
+                @include for-desktop{
                     gap: 25px;
+                }
+                .fa-regular{
+                    &.fa-heart{
+                    color: black;
+                    position: absolute;
+                    top: 35px;
+                    right: 50px;
+                    opacity: 1;
+                    &:hover{
+                        opacity: 0;
+                    }
+                }
+            }
+                .fa-solid{
+                    &.fa-heart{
+                        position: absolute;
+                        color: transparent;
+                        background-clip: text;
+                        background-image: linear-gradient($main-colour, $secondary-color);
+                        opacity: 0;
+                        top: 35px;
+                        right: 50px;
+                        transition: all 500ms ease-out;
+                        &:hover{
+                            opacity: 1;
+                        }
+                    }
                 }
             }
             .btn-menu{
+                position: relative;
                 padding: 15px;
                 width: 85%;
                 margin-top: 20px;
@@ -145,6 +192,27 @@ body{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                text-overflow: ellipsis;
+            }
+            .fa-circle-check{
+                color: white;
+                background: $third-color;
+                width: 60px;
+                height: 69px;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                border-radius: 0px 15.043px 15.043px 0px;
+                opacity: 0;
+                transition: transform 400ms ease-in-out;
+                transform-origin: right;
+                &:hover{
+                    opacity: 1;
+                    -ms-transform-origin-x: -60px;
+                }
             }
         }
         .menu-detail{
@@ -157,7 +225,6 @@ body{
             width: 50%;
             display: block;
             margin: auto;
-            margin-bottom: 50px;
             color: white;
             font-family: $text-font;
             font-size: 16px;
@@ -170,10 +237,14 @@ body{
             border-radius: 25px;
             background: var(--btn-gradient);
             &:hover{
-                opacity: 75%;
+                opacity: 85%;
+                box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.15);
             }
             @include for-tablet{
-                width: 15%;
+                width: 30%;
+            }
+            @include for-desktop{
+                width: 25%;
             }
         }
     }
@@ -183,8 +254,11 @@ body{
         @include for-tablet{
             display: flex;
             flex-direction: row-reverse;
-            padding-top: 30px;
-            padding-bottom: 30px;
+            padding-right: 25px;
+        }
+        @include for-desktop{
+            display: flex;
+            flex-direction: row-reverse;
             padding-right: 25px;
         }
         .footer__logo{
@@ -196,12 +270,25 @@ body{
             line-height: normal;
             padding-left: 25px;
             padding-top: 25px;
+            @include for-tablet{
+                padding-top: 50px;
+            }
+            @include for-desktop{
+                padding-top: 50px;
+            }
         }
         .footer__content{
             @include for-tablet{
                 display: flex;
                 flex-direction: row;
                 gap: 15px;
+                padding-top: 50px;
+            }
+            @include for-desktop{
+                display: flex;
+                flex-direction: row;
+                gap: 15px;
+                padding-top: 50px;
             }
         }
         ul{

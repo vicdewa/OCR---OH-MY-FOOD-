@@ -4,8 +4,12 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background: #F3F3F3;
 }
 body a {
+  text-decoration: none;
+}
+body a:visited {
   text-decoration: none;
 }
 body header {
@@ -19,6 +23,7 @@ body header .fa-arrow-left {
   position: absolute;
   left: 30px;
   top: 22px;
+  color: black;
 }
 body header .header-logo {
   width: 13.125em;
@@ -26,6 +31,11 @@ body header .header-logo {
   padding-top: 15px;
   padding-bottom: 25px;
   text-align: center;
+}
+@media only screen and (min-width: 1025px) {
+  body main {
+    background: white;
+  }
 }
 body main .header-img-restaurant {
   width: 100%;
@@ -44,7 +54,6 @@ body main h1 {
   line-height: normal;
   margin-top: 30px;
   margin-bottom: 20px;
-  padding-left: 15px;
   text-align: center;
 }
 body main h2 {
@@ -58,17 +67,27 @@ body main h2 {
   text-align: left;
   padding-top: 20px;
 }
+@media only screen and (min-width: 769px) {
+  body main h2 {
+    padding-left: 55px;
+  }
+}
 body main hr {
   border: 2px #99E2D0 solid;
   width: 40px;
   margin-left: 15px;
   margin-top: 0px;
 }
+@media only screen and (min-width: 769px) {
+  body main hr {
+    margin-left: 55px;
+  }
+}
 body main h3 {
-  overflow: hidden;
   color: #000;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -77,10 +96,10 @@ body main h3 {
   text-align: left;
 }
 body main p {
-  overflow: hidden;
   color: #000;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: "Roboto", sans-serif;
   font-size: 15.043px;
   font-style: normal;
@@ -91,30 +110,71 @@ body main p {
 body main .card-restaurant {
   background-color: #F3F3F3;
   margin-top: -30px;
-  margin-bottom: 40px;
+  padding-bottom: 50px;
   border-radius: 30px 30px 0px 0px;
   position: relative;
   z-index: 2;
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   body main .card-restaurant {
-    max-width: 1440px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body main .card-restaurant {
+    max-width: 1025px;
+    margin-right: 6.25em;
+    margin-left: 6.25em;
   }
 }
 body main .card-restaurant .card-title {
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   align-content: center;
   justify-content: space-around;
+  margin: auto;
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   body main .card-restaurant .card-title {
-    justify-content: center;
+    width: 19em;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body main .card-restaurant .card-title {
     gap: 25px;
   }
 }
+body main .card-restaurant .card-title .fa-regular.fa-heart {
+  color: black;
+  position: absolute;
+  top: 35px;
+  right: 50px;
+  opacity: 1;
+}
+body main .card-restaurant .card-title .fa-regular.fa-heart:hover {
+  opacity: 0;
+}
+body main .card-restaurant .card-title .fa-solid.fa-heart {
+  position: absolute;
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+  opacity: 0;
+  top: 35px;
+  right: 50px;
+  transition: all 500ms ease-out;
+}
+body main .card-restaurant .card-title .fa-solid.fa-heart:hover {
+  opacity: 1;
+}
 body main .card-restaurant .btn-menu {
+  position: relative;
   padding: 15px;
   width: 85%;
   margin-top: 20px;
@@ -128,6 +188,27 @@ body main .card-restaurant .btn-menu-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-overflow: ellipsis;
+}
+body main .card-restaurant .fa-circle-check {
+  color: white;
+  background: #99E2D0;
+  width: 60px;
+  height: 69px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 0px 15.043px 15.043px 0px;
+  opacity: 0;
+  transition: transform 400ms ease-in-out;
+  transform-origin: right;
+}
+body main .card-restaurant .fa-circle-check:hover {
+  opacity: 1;
+  -ms-transform-origin-x: -60px;
 }
 body main .menu-detail {
   display: flex;
@@ -139,7 +220,6 @@ body main .btn-cta {
   width: 50%;
   display: block;
   margin: auto;
-  margin-bottom: 50px;
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -153,23 +233,34 @@ body main .btn-cta {
   background: var(--btn-gradient);
 }
 body main .btn-cta:hover {
-  opacity: 75%;
+  opacity: 85%;
+  box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.15);
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   body main .btn-cta {
-    width: 15%;
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body main .btn-cta {
+    width: 25%;
   }
 }
 body footer {
   color: white;
   background-color: var(--Grey, #353535);
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   body footer {
     display: flex;
     flex-direction: row-reverse;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-right: 25px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body footer {
+    display: flex;
+    flex-direction: row-reverse;
     padding-right: 25px;
   }
 }
@@ -183,11 +274,30 @@ body footer .footer__logo {
   padding-left: 25px;
   padding-top: 25px;
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
+  body footer .footer__logo {
+    padding-top: 50px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body footer .footer__logo {
+    padding-top: 50px;
+  }
+}
+@media only screen and (min-width: 769px) {
   body footer .footer__content {
     display: flex;
     flex-direction: row;
     gap: 15px;
+    padding-top: 50px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body footer .footer__content {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-top: 50px;
   }
 }
 body footer ul {
