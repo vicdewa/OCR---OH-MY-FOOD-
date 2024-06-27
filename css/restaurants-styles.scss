@@ -19,6 +19,41 @@ $background-color--grey: #F3F3F3;
     @media only screen and (min-width: 1025px) { @content; }
   }
 
+// Keyframes
+
+@keyframes appearEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+@keyframes appearPlat {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes appearDessert {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 body{
     font-family: $text-font;
     background: $background-color--grey;
@@ -98,6 +133,7 @@ body{
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            width: 75%;
             font-family: $text-font;
             font-size: 18px;
             font-style: normal;
@@ -107,9 +143,6 @@ body{
         }
         p{
             color: #000;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             font-family: $text-font;
             font-size: 15.043px;
             font-style: normal;
@@ -130,8 +163,8 @@ body{
             }
             @include for-desktop{
                 max-width: 1025px;
-                margin-right: 6.25em;
-                margin-left: 6.25em;
+                margin-right: auto;
+                margin-left: auto;
             }
             .card-title{
                 width: 100%;
@@ -143,7 +176,7 @@ body{
                 justify-content: space-around;
                 margin: auto;
                 @include for-tablet{
-                    width: 19em;
+                    width: 24em;
                     justify-content: space-between;
                 }
                 @include for-desktop{
@@ -167,10 +200,10 @@ body{
                         color: transparent;
                         background-clip: text;
                         background-image: linear-gradient($main-colour, $secondary-color);
-                        opacity: 0;
                         top: 35px;
                         right: 50px;
-                        transition: all 500ms ease-out;
+                        opacity: 0;
+                        transition: all 500ms ease;
                         &:hover{
                             opacity: 1;
                         }
@@ -178,41 +211,54 @@ body{
                 }
             }
             .btn-menu{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                justify-items: center;
                 position: relative;
                 padding: 15px;
                 width: 85%;
                 margin-top: 20px;
                 background-color: white;
                 border: 0px solid transparent;
+                padding: 0px!important;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 border-radius: 15.043px;
                 background: var(--White, #FFF);
-                box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10)
+                box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10);
+                .menu-content{
+                    display: block;
+                    flex: 1;
+                    padding: 15px;
+                }
+                .check{
+                    width: 0px;
+                    height: 69px;
+                    border-radius: 0px 15.043px 15.043px 0px;
+                    display: flex;
+                    background-color: $third-color;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 500ms ease;
+                }
+                &:hover .check{
+                    flex: 0.1;
+                }
             }
             .btn-menu-content{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                text-overflow: ellipsis;
             }
             .fa-circle-check{
+                display: flex;
                 color: white;
-                background: $third-color;
-                width: 60px;
-                height: 69px;
                 justify-content: center;
                 align-items: center;
                 align-content: center;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                border-radius: 0px 15.043px 15.043px 0px;
-                opacity: 0;
-                transition: transform 400ms ease-in-out;
-                transform-origin: right;
-                &:hover{
-                    opacity: 1;
-                    -ms-transform-origin-x: -60px;
-                }
             }
         }
         .menu-detail{
@@ -220,7 +266,25 @@ body{
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
+            &.menu-entree{
+                .btn-menu {
+                animation: appearEntrance 1.5s ease forwards;
+                opacity: 0;
+              }
+            }
+            &.menu-plat{
+                .btn-menu {
+                animation: appearPlat 3.5s ease forwards;
+                opacity: 0;
+              }
+            }
+            &.menu-dessert{
+                .btn-menu {
+                animation: appearDessert 5.5s ease forwards;
+                opacity: 0;
+              }
+            }
+    }
         .btn-cta{
             width: 50%;
             display: block;
@@ -260,6 +324,13 @@ body{
             display: flex;
             flex-direction: row-reverse;
             padding-right: 25px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            &:visited{
+                text-decoration: none;
+            }
         }
         .footer__logo{
             color: var(--White, #FFF);

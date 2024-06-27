@@ -2,6 +2,36 @@
   --btn-gradient: linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%) ;
 }
 
+@keyframes appearEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes appearPlat {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes appearDessert {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
   background: #F3F3F3;
@@ -88,6 +118,7 @@ body main h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 75%;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -97,9 +128,6 @@ body main h3 {
 }
 body main p {
   color: #000;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-family: "Roboto", sans-serif;
   font-size: 15.043px;
   font-style: normal;
@@ -124,8 +152,8 @@ body main .card-restaurant {
 @media only screen and (min-width: 1025px) {
   body main .card-restaurant {
     max-width: 1025px;
-    margin-right: 6.25em;
-    margin-left: 6.25em;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 body main .card-restaurant .card-title {
@@ -140,7 +168,7 @@ body main .card-restaurant .card-title {
 }
 @media only screen and (min-width: 769px) {
   body main .card-restaurant .card-title {
-    width: 19em;
+    width: 24em;
     justify-content: space-between;
   }
 }
@@ -165,56 +193,81 @@ body main .card-restaurant .card-title .fa-solid.fa-heart {
   -webkit-background-clip: text;
           background-clip: text;
   background-image: linear-gradient(#9356DC, #FF79DA);
-  opacity: 0;
   top: 35px;
   right: 50px;
-  transition: all 500ms ease-out;
+  opacity: 0;
+  transition: all 500ms ease;
 }
 body main .card-restaurant .card-title .fa-solid.fa-heart:hover {
   opacity: 1;
 }
 body main .card-restaurant .btn-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  justify-items: center;
   position: relative;
   padding: 15px;
   width: 85%;
   margin-top: 20px;
   background-color: white;
   border: 0px solid transparent;
+  padding: 0px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   border-radius: 15.043px;
   background: var(--White, #FFF);
   box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.1);
+}
+body main .card-restaurant .btn-menu .menu-content {
+  display: block;
+  flex: 1;
+  padding: 15px;
+}
+body main .card-restaurant .btn-menu .check {
+  width: 0px;
+  height: 69px;
+  border-radius: 0px 15.043px 15.043px 0px;
+  display: flex;
+  background-color: #99E2D0;
+  align-items: center;
+  justify-content: center;
+  transition: all 500ms ease;
+}
+body main .card-restaurant .btn-menu:hover .check {
+  flex: 0.1;
 }
 body main .card-restaurant .btn-menu-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  text-overflow: ellipsis;
 }
 body main .card-restaurant .fa-circle-check {
+  display: flex;
   color: white;
-  background: #99E2D0;
-  width: 60px;
-  height: 69px;
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border-radius: 0px 15.043px 15.043px 0px;
-  opacity: 0;
-  transition: transform 400ms ease-in-out;
-  transform-origin: right;
-}
-body main .card-restaurant .fa-circle-check:hover {
-  opacity: 1;
-  -ms-transform-origin-x: -60px;
 }
 body main .menu-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+body main .menu-detail.menu-entree .btn-menu {
+  animation: appearEntrance 1.5s ease forwards;
+  opacity: 0;
+}
+body main .menu-detail.menu-plat .btn-menu {
+  animation: appearPlat 3.5s ease forwards;
+  opacity: 0;
+}
+body main .menu-detail.menu-dessert .btn-menu {
+  animation: appearDessert 5.5s ease forwards;
+  opacity: 0;
 }
 body main .btn-cta {
   width: 50%;
@@ -263,6 +316,13 @@ body footer {
     flex-direction: row-reverse;
     padding-right: 25px;
   }
+}
+body footer a {
+  text-decoration: none;
+  color: white;
+}
+body footer a:visited {
+  text-decoration: none;
 }
 body footer .footer__logo {
   color: var(--White, #FFF);
